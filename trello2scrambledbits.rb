@@ -36,6 +36,14 @@ class Manager < Thor
     puts markdown
   end
 
+  desc 'readingtime [boardid]', 'Fetch trello board and estimate reading time.'
+  def readingtime(board_id=nil)
+    board = fetch_board(board_id)
+    markdown = get_markdown_for_board(board)
+    numwords = markdown.split(' ').length 
+    puts "Estimated reading time: " + (numwords / 200).to_s + " minutes"
+  end
+
   desc 'tomedium [boardid]', 'Fetch trello board and send results to Medium.'
   def tomedium(board_id=nil)
     begin
