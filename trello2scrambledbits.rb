@@ -72,7 +72,7 @@ class Manager < Thor
     begin
       markdown = file_md
       response = @medium_client.post({
-        title: "#{@@file_md}",
+        title: "[TK] Title",
         contentFormat: "markdown",
         content: markdown,
         tags: ["privacy", "security", "infosec"],
