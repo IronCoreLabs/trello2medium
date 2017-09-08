@@ -117,7 +117,7 @@ class Manager < Thor
           end
         }
       }
-      output << "\n\n---\n_If you liked this, please click the 💚 below. If you’re reading this in an email, please go to the article on the web first. Liking the article will help other people see it on Medium. You might also be interested in [TK] last week’s summary compliments of [IronCore Labs](https://ironcorelabs.com/)._\n\n_[Subscribe to our email digest](https://blog.ironcorelabs.com/email-notifications-29f6934c9bb7#.d1k0dywpc) to avoid missing another update._"
+      output << "\n\n---\n_If you liked this, please click the 👏 below. If you’re reading this in an email, please go to the article on the web first. Liking the article will help other people see it on Medium. You might also be interested in [TK] last week’s summary compliments of [IronCore Labs](https://ironcorelabs.com/)._\n\n_[Subscribe to our email digest](https://blog.ironcorelabs.com/email-notifications-29f6934c9bb7#.d1k0dywpc) to avoid missing another update._"
     rescue
       error("Issue iterating through board #{board_id}")
       error($!.pretty_inspect)
