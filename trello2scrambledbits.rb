@@ -40,7 +40,7 @@ class Manager < Thor
   def readingtime(board_id=nil)
     board = fetch_board(board_id)
     markdown = get_markdown_for_board(board)
-    numwords = markdown.split(' ').length 
+    numwords = markdown.split(' ').length
     puts "Estimated reading time: " + (numwords / 200).to_s + " minutes"
   end
 
@@ -53,7 +53,7 @@ class Manager < Thor
         title: "#{@@title_base} #{board.name.gsub(/#/,"")}",
         contentFormat: "markdown",
         content: markdown,
-        tags: ["privacy", "news", "infosec", "security"],
+        tags: ["privacy", "news", "cybersecurity", "security"],
         publishStatus: "draft",
         publicationId: @@medium_publication
       })
