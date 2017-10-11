@@ -44,8 +44,8 @@ class Manager < Thor
     puts "Estimated reading time: " + (numwords / 200).to_s + " minutes"
   end
 
-  desc 'tomedium [boardid]', 'Fetch trello board and send results to Medium.'
-  def tomedium(board_id=nil)
+  desc 'tomediumfromtrello [boardid]', 'Fetch trello board and send results to Medium.'
+  def tomediumfromtrello(board_id=nil)
     begin
       board = fetch_board(board_id)
       markdown = get_markdown_for_board(board)
@@ -67,6 +67,27 @@ class Manager < Thor
 
   end
 
+  desc 'tomediumfrommd [filename]', 'Fetch markdown file and send results to Medium.'
+  def tomediumfrommd(file_md=nil)
+    begin
+      markdown = file_md
+      response = @medium_client.post({
+        title: "[TK] Title",
+        contentFormat: "markdown",
+        content: markdown,
+        tags: ["privacy", "security", "infosec"],
+        publishStatus: "draft",
+        publicationId: @@medium_publication
+      })
+
+      out("Success: #{response.pretty_inspect}")
+    rescue
+      error("Failed to post to medium")
+      error(response.pretty_inspect)
+      exit 1
+    end
+
+  end
 
   private
   def fetch_board(board_id=nil)
