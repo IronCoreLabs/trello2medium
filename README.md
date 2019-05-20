@@ -46,3 +46,6 @@ Finally, test the integration.  `./trello2scrambledbits.rb help` will tell you y
 ![Feedly is stop #1](./feedly-screenshot.png)
 ![Trello is stop #2](./trello-screenshot.png)
 ![Medium is the last stop](./medium-screenshot.png)
+
+Copyright (c)  2017-present  IronCore Labs, Inc.
+All rights reserved.
